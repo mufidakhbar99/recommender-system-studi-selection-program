@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>REKOMENDASI PROGRAM STUDI</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+			crossorigin="anonymous"
+		/>
+		<style>
+			main .container2 {
+				background-color: grey;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1 class="display-2 text-center fs-1 fw-bold my-4">
+				Sistem Rekomendasi Program Studi MIPA
+			</h1>
+		</header>
+
+		<main>
+			<div class="container">
+				<form
+					method="POST"
+					action="/"
+					class="form__daftar border-black border border-dark-subtle p-5 rounded-2 shadow-lg mx-auto"
+				>
+					<div class="mb-5 border rounded p-3 container2">
+						<label for="jenisKelamin" class="form-label fw-bold"
+							>Jenis Kelamin</label
+						>
+						<select
+							class="form-select p-3"
+							aria-label="Default select example"
+							id="jenisKelamin"
+							name="jenisKelamin"
+						>
+							<option selected disabled>Pilih Jenis Kelamin Anda</option>
+							<option value="Laki-Laki">Laki-Laki</option>
+							<option value="Perempuan">Perempuan</option>
+						</select>
+					</div>
+
+					<div class="mb-5 border rounded p-3 container2">
+						<label for="Nilai-MTK" class="form-label fw-bold"
+							>Rata-Rata Nilai MTK Saat SMA</label
+						>
+						<select
+							class="form-select p-3"
+							aria-label="Default select example"
+							id="Nilai-MTK"
+							name="Nilai-MTK"
+						>
+							<option selected disabled>
+								Pilih Rata-Rata Nilai MTK Saat SMA
+							</option>
+							<option value="A (90-100)">A (90-100)</option>
+							<option value="B (80-89)">B (80-89)</option>
+							<option value="C (0-79)">C (0-79)</option>
+						</select>
+					</div>
+
+					<div class="mb-5 border rounded p-3 container2">
+						<label for="Nilai-bhs-indo" class="form-label fw-bold"
+							>Rata-Rata Nilai Bahasa Indonesia Saat SMA</label
+						>
+						<select
+							class="form-select p-3"
+							aria-label="Default select example"
+							id="Nilai-bhs-indo"
+							name="Nilai-bhs-indo"
+						>
+							<option selected disabled>
+								Pilih Rata-Rata Nilai Bahasa Indonesa Saat SMA
+							</option>
+							<option value="A (90-100)">A (90-100)</option>
+							<option value="B (80-89)">B (80-89)</option>
+							<option value="C (0-79)">C (0-79)</option>
+						</select>
+					</div>
+
+					<div class="mb-5 border rounded p-3 container2">
+						<label for="Nilai-bhs-ingg" class="form-label fw-bold"
+							>Rata-Rata Nilai Bahasa Inggris Saat SMA</label
+						>
+						<select
+							class="form-select p-3"
+							aria-label="Default select example"
+							id="Nilai-bhs-ingg"
+							name="Nilai-bhs-ingg"
+						>
+							<option selected disabled>
+								Pilih Rata-Rata Nilai Bahasa Inggris Saat SMA
+							</option>
+							<option value="A (90-100)">A (90-100)</option>
+							<option value="B (80-89)">B (80-89)</option>
+							<option value="C (0-79)">C (0-79)</option>
+						</select>
+					</div>
+
+					<div class="mb-4 border rounded p-3 container2" id="mapel">
+						<!-- Pesan Kriteria -->
+							<!-- Ketika user memilih kurang dari 2 setelah tombol submit ditekan -->
+							<div
+								class="alert alert-warning fw-semibold d-none"
+								role="alert"
+								id="msgAfterSubmit"
+							></div>
+						<label for="kriteria-diri" class="form-label fw-bold"
+							>Pilih 3 Mata Pelajaran Yang Diminati Saat SMA</label
+						>
+						<div class="form-check">
+							<input
+								class="form-check-input mapel"
+								type="checkbox"
+								value="Matematika"
+								id="flexCheckDefault"
+								name="mapel"
+							/>
+							<label class="form-check-label" for="flexCheckDefault">
+								Matematika
+							</label>
+						</div>
+
+						<div class="form-check">
+							<input
+								class="form-check-input mapel"
+								type="checkbox"
+								value="Fisika"
+								id="Fisika"
+								name="mapel"
+							/>
+							<label class="form-check-label" for="Fisika"> Fisika </label>
+						</div>
+
+						<div class="form-check">
+							<input
+								class="form-check-input mapel"
+								type="checkbox"
+								value="Kimia"
+								id="Kimia"
+								name="mapel"
+							/>
+							<label class="form-check-label" for="Kimia"> Kimia </label>
+						</div>
+
+						<div class="form-check">
+							<input
+								class="form-check-input mapel"
+								type="checkbox"
+								value="Biologi"
+								id="Biologi"
+								name="mapel"
+							/>
+							<label class="form-check-label" for="Biologi"> Biologi </label>
+						</div>
+
+						<div class="form-check">
+							<input
+								class="form-check-input mapel"
+								type="checkbox"
+								value="Bahasa Inggris"
+								id="bhs-inggris"
+								name="mapel"
+							/>
+							<label class="form-check-label" for="bhs-inggris">
+								Bahasa Inggris
+							</label>
+						</div>
+
+						<div class="form-check">
+							<input
+								class="form-check-input mapel"
+								type="checkbox"
+								value="Bahasa Indonesia"
+								id="bhs-indonesia"
+								name="mapel"
+							/>
+							<label class="form-check-label" for="bhs-indonesia">
+								Bahasa Indonesia
+							</label>
+						</div>
+
+						<div class="form-check">
+							<input
+								class="form-check-input mapel"
+								type="checkbox"
+								value="Teknologi Informasi dan Komunikasi (TIK)"
+								id="tik"
+								name="mapel"
+							/>
+							<label class="form-check-label" for="tik">
+								Teknologi Informasi dan Komunikasi (TIK)
+							</label>
+						</div>
+
+						<div class="form-check">
+							<input
+								class="form-check-input mapel"
+								type="checkbox"
+								value="Geografi"
+								id="geografi"
+								name="mapel"
+							/>
+							<label class="form-check-label" for="geografi"> Geografi </label>
+						</div>
+
+						<div class="form-check">
+							<input
+								class="form-check-input mapel"
+								type="checkbox"
+								value="Seni Budaya"
+								id="seni-budaya"
+								name="mapel"
+							/>
+							<label class="form-check-label" for="seni-budaya">
+								Seni Budaya
+							</label>
+						</div>
+						
+							<!-- Pesan kriteria -->
+							<!-- Ketika user memilih kurang dari dan lebih dari 2 -->
+							<div
+								class="alert alert-danger mt-3 d-none fw-semibold"
+								role="alert"
+								id="msg"
+							></div>
+					</div>
+
+					<div class="minat-yang-dimiliki">
+						<h3 class="mb-3">Penilaian Minat yang Anda Miliki</h3>
+
+						<div class="mb-5 border rounded p-3 container2">
+							<label for="PreferensiPekerjaan" class="form-label fw-bold"
+								>Preferensi Pekerjaan</label
+							>
+							<select
+								class="form-select p-3"
+								aria-label="Default select example"
+								id="PreferensiPekerjaan"
+								name="PreferensiPekerjaan"
+							>
+								<option value="Bekerja Dalam Ruangan">
+									Bekerja Dalam Ruangan
+								</option>
+								<option value="Bekerja Diluar Ruangan (Pekerja Lapangan)">
+									Bekerja Diluar Ruangan (Pekerja Lapangan)
+								</option>
+							</select>
+						</div>
+
+						<div class="mb-4 border rounded p-3 container2" id="kriteria-diri">
+							<!-- Pesan Kriteria -->
+							<!-- Ketika user memilih kurang dari 2 setelah tombol submit ditekan -->
+							<div
+								class="alert alert-warning fw-semibold d-none"
+								role="alert"
+								id="msgAfterSubmit"
+							></div>
+
+							<label for="kriteria-diri" class="form-label fw-bold"
+								>Pilih 2 Kriteria Diri Yang Menggambarkan Anda</label
+							>
+							<div class="form-check">
+								<input
+									class="form-check-input kriteria-diri"
+									type="checkbox"
+									value="Outdoor (Pekerjaan yang aktivitas di luar atau pekerjaan yang tidak bersifat rutin)"
+									id="outdoor"
+									name="kritediri"
+								/>
+								<label class="form-check-label" for="outdoor">
+									Outdoor (Pekerjaan yang aktivitas di luar atau pekerjaan yang
+									tidak bersifat rutin)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input kriteria-diri"
+									type="checkbox"
+									value="Mechanical (Pekerjaan berhubungan/menggunakan mesin sebagai alat dan mekanik)"
+									id="mechanical"
+									name="kritediri"
+								/>
+								<label class="form-check-label" for="mechanical">
+									Mechanical (Pekerjaan berhubungan/menggunakan mesin sebagai
+									alat dan mekanik)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input kriteria-diri"
+									type="checkbox"
+									value="Computational (Pekerjaan berhubungan dengan angka-angka)"
+									id="computational"
+									name="kritediri"
+								/>
+								<label class="form-check-label" for="computational">
+									Computational (Pekerjaan berhubungan dengan angka-angka)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input kriteria-diri"
+									type="checkbox"
+									value="Scientific (Pekerjaan berhubungan analisa dan eksperimen pada ilmu pengetahuan)"
+									id="scientific"
+									name="kritediri"
+								/>
+								<label class="form-check-label" for="scientific">
+									Scientific (Pekerjaan berhubungan analisa dan eksperimen pada
+									ilmu pengetahuan)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input kriteria-diri"
+									type="checkbox"
+									value="Persuasive (Pekerjaan berhubungan dengan manusia,berdiskusi,membujuk,bergaul dengan orang lain)"
+									id="persuasive"
+									name="kritediri"
+								/>
+								<label class="form-check-label" for="persuasive">
+									Persuasive (Pekerjaan berhubungan dengan
+									manusia,berdiskusi,membujuk,bergaul dengan orang lain)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input kriteria-diri"
+									type="checkbox"
+									value="Artistic (Pekerjaan berhubungan hal-hal yang bersifat seni dan menciptakan sesauatu)"
+									id="artistik"
+									name="kritediri"
+								/>
+								<label class="form-check-label" for="artistik">
+									Artistic (Pekerjaan berhubungan hal-hal yang bersifat seni dan
+									menciptakan sesauatu)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input kriteria-diri"
+									type="checkbox"
+									value="Literary (Pekerjaan berhubungan kegiatan membaca dan mengarang)"
+									id="literary"
+									name="kritediri"
+								/>
+								<label class="form-check-label" for="literary">
+									Literary (Pekerjaan berhubungan kegiatan membaca dan
+									mengarang)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input kriteria-diri"
+									type="checkbox"
+									value="Sosial Service (Pekerjaan berhubungan nilai praktik sosial)"
+									id="sosial-servis"
+									name="kritediri"
+								/>
+								<label class="form-check-label" for="sosial-servis">
+									Sosial Service (Pekerjaan berhubungan nilai praktik sosial)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input kriteria-diri"
+									type="checkbox"
+									value="Clerical (Pekerjaan berhubungan dengan Administratif)"
+									id="clerical"
+									name="kritediri"
+								/>
+								<label class="form-check-label" for="clerical">
+									Clerical (Pekerjaan berhubungan dengan Administratif)
+								</label>
+							</div>
+
+							<!-- Pesan kriteria -->
+							<!-- Ketika user memilih kurang dari dan lebih dari 2 -->
+							<div
+								class="alert alert-danger mt-3 d-none fw-semibold"
+								role="alert"
+								id="msg"
+							></div>
+						</div>
+
+						<div class="mb-4 border rounded p-3 container2" id="bidang-studi">
+							<!-- Pesan Kriteria -->
+							<!-- Ketika user memilih kurang dari 2 setelah tombol submit ditekan -->
+							<div
+								class="alert alert-warning fw-semibold d-none"
+								role="alert"
+								id="msgAfterSubmit"
+							></div>
+
+							<label for="bidang-studi" class="form-label fw-bold"
+								>Pilih 2 Topik atau Bidang Studi yang Paling Anda Minati Saat
+								Ini</label
+							>
+							<div class="form-check">
+								<input
+									class="form-check-input bidang-studi"
+									type="checkbox"
+									value="Teknologi"
+									id="teknologi"
+									name="topkbidng"
+								/>
+								<label class="form-check-label" for="teknologi">
+									Teknologi
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bidang-studi"
+									type="checkbox"
+									value="Sains"
+									id="sains"
+									name="topkbidng"
+								/>
+								<label class="form-check-label" for="sains"> Sains </label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bidang-studi"
+									type="checkbox"
+									value="Teori"
+									id="teori"
+									name="topkbidng"
+								/>
+								<label class="form-check-label" for="teori"> Teori </label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bidang-studi"
+									type="checkbox"
+									value="Design"
+									id="design"
+									name="topkbidng"
+								/>
+								<label class="form-check-label" for="design"> Design </label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bidang-studi"
+									type="checkbox"
+									value="Lingkungan"
+									id="lingkungan"
+									name="topkbidng"
+								/>
+								<label class="form-check-label" for="lingkungan">
+									Lingkungan
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bidang-studi"
+									type="checkbox"
+									value="Kesehatan"
+									id="kesehatan"
+									name="topkbidng"
+								/>
+								<label class="form-check-label" for="kesehatan">
+									Kesehatan
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bidang-studi"
+									type="checkbox"
+									value="Seni"
+									id="seni"
+									name="topkbidng"
+								/>
+								<label class="form-check-label" for="seni"> Seni </label>
+							</div>
+
+							<!-- Pesan kriteria -->
+							<!-- Ketika user memilih kurang dari dan lebih dari 2 -->
+							<div
+								class="alert alert-danger mt-3 d-none fw-semibold"
+								role="alert"
+								id="msg"
+							></div>
+						</div>
+
+						<div class="mb-5 border rounded p-3 container2">
+							<label for="Kecerdasan" class="form-label fw-bold"
+								>Pilih Kecerdasan Yang Dimiliki</label
+							>
+							<select
+								class="form-select p-3"
+								aria-label="Default select example"
+								id="Kecerdasan"
+								name="Kecerdasan" required
+							>
+								<option
+									value="Kecerdasan Linguistic-Verbal (kemampuan mengelola kata dan bahasa)"
+								>
+									Kecerdasan Linguistic-Verbal (kemampuan mengelola kata dan
+									bahasa)
+								</option>
+								<option
+									value="Kecerdasan Logika Matematika (kemampuan dengan logika terutama terkait matematika)"
+								>
+									Kecerdasan Logika Matematika (kemampuan dengan logika terutama
+									terkait matematika)
+								</option>
+								<option
+									value="Kecerdasan Spasial-Visual (kemampuan yang berkaitan dengan persepsi visual)"
+								>
+									Kecerdasan Spasial-Visual (kemampuan yang berkaitan dengan
+									persepsi visual)
+								</option>
+								<option
+									value="Kecerdasan Kinestetik (kemampuan mengekspresikan ide serta keterampilan menciptakan sesuatu)"
+								>
+									Kecerdasan Kinestetik (kemampuan mengekspresikan ide serta
+									keterampilan menciptakan sesuatu)
+								</option>
+								<option
+									value="Kecerdasan Interpersonal (kemampuan berhubungan dan memahami orang)"
+								>
+									Kecerdasan Interpersonal (kemampuan berhubungan dan memahami
+									orang)
+								</option>
+								<option
+									value="Kecerdasan Naturalis (kemampuan memahami unsur dalam lingkungan alam)"
+								>
+									Kecerdasan Naturalis (kemampuan memahami unsur dalam
+									lingkungan alam)
+								</option>
+							</select>
+						</div>
+
+						<div class="mb-4 border rounded p-3 container2" id="bakat">
+							<!-- Pesan Kriteria -->
+							<!-- Ketika user memilih kurang dari 2 setelah tombol submit ditekan -->
+							<div
+								class="alert alert-warning fw-semibold d-none"
+								role="alert"
+								id="msgAfterSubmit"
+							></div>
+
+							<label for="bakat" class="form-label fw-bold"
+								>Pilih 2 Bakat/Keahlian yang Anda Miliki</label
+							>
+							<div class="form-check">
+								<input
+									class="form-check-input bakat"
+									type="checkbox"
+									value="Realitas (kemampuan dalam memahami, menganalisis objek dalam dunia nyata)"
+									id="realitas"
+									name="bakatahli"
+								/>
+								<label class="form-check-label" for="realitas">
+									Realitas (kemampuan dalam memahami, menganalisis objek dalam
+									dunia nyata)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bakat"
+									type="checkbox"
+									value="Bahasa (Kemampuan komunikasi lisan dan tertulis)"
+									id="bahasa"
+									name="bakatahli"
+								/>
+								<label class="form-check-label" for="bahasa">
+									Bahasa (Kemampuan komunikasi lisan dan tertulis)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bakat"
+									type="checkbox"
+									value="Berbicara (Kemampuan berkomunikasi secara efektif, termasuk berbicara di depan umum)"
+									id="berbicara"
+									name="bakatahli"
+								/>
+								<label class="form-check-label" for="berbicara">
+									Berbicara (Kemampuan berkomunikasi secara efektif, termasuk
+									berbicara di depan umum)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bakat"
+									type="checkbox"
+									value="Berpikir/Penalaran (Kemampuan berpikir kritis, menganalisis dan menyelesaikan masalah)"
+									id="berpikir"
+									name="bakatahli"
+								/>
+								<label class="form-check-label" for="berpikir">
+									Berpikir/Penalaran (Kemampuan berpikir kritis, menganalisis
+									dan menyelesaikan masalah)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bakat"
+									type="checkbox"
+									value="Abstraksi (Kemampuan memahami dan bekerja dengan ide/konsep yang kompleks)"
+									id="abstraksi"
+									name="bakatahli"
+								/>
+								<label class="form-check-label" for="abstraksi">
+									Abstraksi (Kemampuan memahami dan bekerja dengan ide/konsep
+									yang kompleks)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bakat"
+									type="checkbox"
+									value="Daya Ingat (Kemampuan mengingat informasi dengan baik)"
+									id="daya-ingat"
+									name="bakatahli"
+								/>
+								<label class="form-check-label" for="daya-ingat">
+									Daya Ingat (Kemampuan mengingat informasi dengan baik)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bakat"
+									type="checkbox"
+									value="Hitung Praktis (Kemampuan menerapkan matematika dalam kehidupan sehari-hari)"
+									id="hitung-praktis"
+									name="bakatahli"
+								/>
+								<label class="form-check-label" for="hitung-praktis">
+									Hitung Praktis (Kemampuan menerapkan matematika dalam
+									kehidupan sehari-hari)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bakat"
+									type="checkbox"
+									value="Hitung Teoritis (Kemampuan memahami matematika yang lebih kompleks dan teoritis)"
+									id="teoritis"
+									name="bakatahli"
+								/>
+								<label class="form-check-label" for="teoritis">
+									Hitung Teoritis (Kemampuan memahami matematika yang lebih
+									kompleks dan teoritis)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bakat"
+									type="checkbox"
+									value="Analisis dan Sintesis (Kemampuan menganalisis dan menyusun kembali informasi)"
+									id="analisis-sintesis"
+									name="bakatahli"
+								/>
+								<label class="form-check-label" for="analisis-sintesis">
+									Analisis dan Sintesis (Kemampuan menganalisis dan menyusun
+									kembali informasi)
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input
+									class="form-check-input bakat"
+									type="checkbox"
+									value="3 Dimensi (Kemampuan memahami dan memvisualisasikan objek dalam tiga dimensi)"
+									id="tiga-dimensi"
+									name="bakatahli"
+								/>
+								<label class="form-check-label" for="tiga-dimensi">
+									3 Dimensi (Kemampuan memahami dan memvisualisasikan objek
+									dalam tiga dimensi)
+								</label>
+							</div>
+
+							<!-- Pesan kriteria -->
+							<!-- Ketika user memilih kurang dari dan lebih dari 2 -->
+							<div
+								class="alert alert-danger mt-3 d-none fw-semibold"
+								role="alert"
+								id="msg"
+							></div>
+						</div>
+					</div>
+
+					
+
+					<button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
+
+					<!-- SPINNER LOADING -->
+					<div id="loadingSpinner" class="spinner-border" role="status" style="display: none;">
+						<span class="sr-only"></span>
+					</div>
+
+
+					<div class="card">
+						<div class="card-header">
+							Rekomendasi Program Studi
+						</div>
+						<div class="card-body">
+							<blockquote class="blockquote mb-0">
+								<p>{{program_studies}}</p>
+								<p id="programStudies"></p>
+								<footer class="blockquote-footer">Mufid Akhbar, <cite title="Source Title">2023</cite></footer>
+							</blockquote>
+						</div>
+					</div>
+					
+				
+
+				</form>
+			</div>
+		</main>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+			crossorigin="anonymous"
+		></script>
+		
+
+		<script>
+			// MATA PELAJARAN (Maksimal 3)
+			const maxAllowedMapel = 3;
+			const mapelAlertMsg = document.querySelector('#mapel #msg')
+			const checkboxesMapel = document.querySelectorAll(
+				'input[type="checkbox"].mapel'
+			);
+			checkboxesMapel.forEach((checkbox) => {
+				checkbox.addEventListener("change", function () {
+					const checkedCheckboxes = document.querySelectorAll(
+						'input[type="checkbox"].mapel:checked'
+					);
+					if (checkedCheckboxes.length > maxAllowedMapel) {
+						this.checked = false;
+						mapelAlertMsg.classList.remove("d-none");
+						mapelAlertMsg.textContent = `Anda hanya dapat memimlih ${maxAllowedMapel} pilihan`;
+					} else if (checkedCheckboxes.length <= maxAllowedMapel) {
+						mapelAlertMsg.classList.remove("d-none");
+						mapelAlertMsg.textContent = `Pilihlah ${maxAllowedMapel} Pilihan`;
+					}
+				});
+			});
+
+			// KRITERIA DIRI (Maksimal 2)
+			const maxAllowedKriteriaDiri = 2;
+			const kriteriaDiriAlert = document.querySelector("#kriteria-diri #msg");
+			const bidangStudiAlert = document.querySelector("#bidang-studi #msg");
+			const bakatAlert = document.querySelector("#bakat #msg");
+			const checkboxesKriteriaDiri = document.querySelectorAll(
+				'input[type="checkbox"].kriteria-diri'
+			);
+			checkboxesKriteriaDiri.forEach((checkbox) => {
+				checkbox.addEventListener("change", function () {
+					const checkedCheckboxes = document.querySelectorAll(
+						'input[type="checkbox"].kriteria-diri:checked'
+					);
+					if (checkedCheckboxes.length > maxAllowedKriteriaDiri) {
+						this.checked = false;
+						kriteriaDiriAlert.classList.remove("d-none");
+						kriteriaDiriAlert.textContent = `Anda hanya dapat memimlih ${maxAllowedKriteriaDiri} pilihan`;
+					} else if (checkedCheckboxes.length <= maxAllowedKriteriaDiri) {
+						kriteriaDiriAlert.classList.remove("d-none");
+						kriteriaDiriAlert.textContent = `Pilihlah ${maxAllowedKriteriaDiri} Pilihan`;
+					}
+				});
+			});
+
+			// BIDANG STUDI (Maksimal 2)
+			const checkboxesBidangStudi = document.querySelectorAll(
+				'input[type="checkbox"].bidang-studi'
+			);
+			checkboxesBidangStudi.forEach((checkbox) => {
+				checkbox.addEventListener("change", function () {
+					const checkedCheckboxes = document.querySelectorAll(
+						'input[type="checkbox"].bidang-studi:checked'
+					);
+					if (checkedCheckboxes.length > maxAllowedKriteriaDiri) {
+						this.checked = false;
+						bidangStudiAlert.classList.remove("d-none");
+						bidangStudiAlert.textContent = `Anda hanya dapat memimlih ${maxAllowedKriteriaDiri} pilihan`;
+					} else if (checkedCheckboxes.length <= maxAllowedKriteriaDiri) {
+						bidangStudiAlert.classList.remove("d-none");
+						bidangStudiAlert.textContent = `Pilihlah ${maxAllowedKriteriaDiri} Pilihan`;
+					}
+				});
+			});
+
+			// BAKAT (Maksimal 2)
+			const checkboxesBakat = document.querySelectorAll(
+				'input[type="checkbox"].bakat'
+			);
+			checkboxesBakat.forEach((checkbox) => {
+				checkbox.addEventListener("change", function () {
+					const checkedCheckboxes = document.querySelectorAll(
+						'input[type="checkbox"].bakat:checked'
+					);
+					if (checkedCheckboxes.length > maxAllowedKriteriaDiri) {
+						this.checked = false;
+						bakatAlert.classList.remove("d-none");
+						bakatAlert.textContent = `Anda hanya dapat memimlih ${maxAllowedKriteriaDiri} pilihan`;
+					} else if (checkedCheckboxes.length <= maxAllowedKriteriaDiri) {
+						bakatAlert.classList.remove("d-none");
+						bakatAlert.textContent = `Pilihlah ${maxAllowedKriteriaDiri} Pilihan`;
+					}
+				});
+			});
+
+			const form = document.querySelector("form");
+			const mapelAlertAfterSubmit = document.querySelector(
+				"#mapel #msgAfterSubmit"
+			);
+			const kriteriaDiriAlertAfterSubmit = document.querySelector(
+				"#kriteria-diri #msgAfterSubmit"
+			);
+			const bidangStudiAlertAfterSubmit = document.querySelector(
+				"#bidang-studi #msgAfterSubmit"
+			);
+			const bakatAlertAfterSubmit = document.querySelector(
+				"#bakat #msgAfterSubmit"
+			);
+
+			// VALIDASI MINIMAL PEMILIHAN MAPEL (MINIMAL 2)
+			form.addEventListener("submit", function (event) {
+				const checkedCheckboxesMapel = document.querySelectorAll(
+					'input[type="checkbox"].mapel:checked'
+				);
+				if (checkedCheckboxesMapel.length < 3) {
+					event.preventDefault();
+					mapelAlertAfterSubmit.classList.remove("d-none");
+					mapelAlertAfterSubmit.textContent = `Pilih lah dengan jumlah sesuai dengan pertanyaan`;
+					mapelAlertAfterSubmit.scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+					});
+				}
+			});
+
+			// VALIDASI MINIMAL PEMILHAN KRITERIA DIRI (Minimal 2) **akan muncul saat tombol submit ditekan
+			form.addEventListener("submit", function (event) {
+				const checkedCheckboxesKriteriaDiri = document.querySelectorAll(
+					'input[type="checkbox"].kriteria-diri:checked'
+				);
+				if (checkedCheckboxesKriteriaDiri.length < 2) {
+					event.preventDefault();
+					kriteriaDiriAlertAfterSubmit.classList.remove("d-none");
+					kriteriaDiriAlertAfterSubmit.textContent = `Pilih lah dengan jumlah sesuai dengan pertanyaan`;
+					kriteriaDiriAlertAfterSubmit.scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+					});
+				}
+			});
+
+			// VALIDASI MINIMAL PEMILHAN KRITERIA DIRI (Minimal 2) **akan muncul saat tombol submit ditekan
+			form.addEventListener("submit", function (event) {
+				const checkedCheckboxesBidangStudi = document.querySelectorAll(
+					'input[type="checkbox"].bidang-studi:checked'
+				);
+				if (checkedCheckboxesBidangStudi.length < 2) {
+					event.preventDefault();
+					bidangStudiAlertAfterSubmit.classList.remove("d-none");
+					bidangStudiAlertAfterSubmit.textContent = `Pilih lah dengan jumlah sesuai dengan pertanyaan`;
+					bidangStudiAlertAfterSubmit.scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+					});
+				}
+			});
+
+			// VALIDASI MINIMAL PEMILHAN BAKAT (Minimal 2) **akan muncul saat tombol submit ditekan
+			form.addEventListener("submit", function (event) {
+				const checkedCheckboxesBakat = document.querySelectorAll(
+					'input[type="checkbox"].bakat:checked'
+				);
+				if (checkedCheckboxesBakat.length < 2) {
+					event.preventDefault();
+					bakatAlertAfterSubmit.classList.remove("d-none");
+					bakatAlertAfterSubmit.textContent = `Pilih lah dengan jumlah sesuai dengan pertanyaan`;
+					bakatAlertAfterSubmit.scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+					});
+				}
+			});
+		</script>
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				// Menggunakan jQuery untuk menangani klik tombol submit
+				$('#submitBtn').on('click', function () {
+					// Menampilkan spinner loading
+					$('#loadingSpinner').show();
+		
+					// Menunda eksekusi selama 0.5 detik (500 milidetik)
+					setTimeout(function () {
+						// Simulasi pengambilan dan menampilkan hasil rekomendasi
+						var hasilRekomendasi = "Program studi yang direkomendasikan";
+						$('#loadingSpinner').hide(); // Menyembunyikan spinner loading
+						$('#programStudies').text(hasilRekomendasi); // Menampilkan hasil rekomendasi
+					}, 500);
+				});
+			});
+		</script>
+		
+	</body>
+</html>
